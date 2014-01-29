@@ -1,0 +1,10 @@
+GUI app, for maximizing plaintext
+
+`python es_gui_out.py`
+
+1) menu -> Open folder or file, select an E-Safenet file, or a folder containing only E-Safenet files ENCRYPTED WITH THE SAME KEY
+2) menu -> Analyze, analyzes the files, tries to maximize plaintext in the file(s), as described in the report.
+
+Note: The analyze step may take some time (15s for 200kB on my 5y/o laptop, displaying results in thhe grid takes even longer...)
+
+Results are displayed as-is, this program is not complete. Feel free to do with it as you see fit
