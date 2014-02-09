@@ -75,6 +75,16 @@ Decrypting an E-Safenet file using a provided key:
 $ python esafenet.py decrypt --infile encrypted.xls --key key.dat --outfile decrypted.xls
 ```
 
+##### Troubleshooting
+
+If you get errors/crashes, they are probably caused be the LZO compression library. The first 512 bytes of an E-Safenet encrypted file are compressed. When using a wrong key, decompression may fail and lead to a crash.
+You can temporarily disable decompression of the first block by changing the *plain_header* variable in esafenet.py to an empty string:
+
+```
+             plain_header = ""
+#            plain_header = simplelzo1x.decompress(decr_header)
+```
+
 ### esafenet_gui.py
 
 The GUI app **esafenet_gui.py** can be used for the ciphertext-only attack.
