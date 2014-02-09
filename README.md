@@ -63,7 +63,7 @@ optional arguments:
 
 ##### Examples
 
-Recovering the encryption key of a binary file:
+Recovering the encryption key of a binary file (probable-plaintext attack):
 
 ```
 $ python esafenet.py pattern_decrypt --type binary --infile encrypted.xls --outfile key.dat
@@ -73,11 +73,23 @@ Decryption: key written to key.dat (4 0-bytes)
 Decrypting an E-Safenet file using a provided key:
 ```
 $ python esafenet.py decrypt --infile encrypted.xls --key key.dat --outfile decrypted.xls
+Decryption: 153400 bytes written to decrypted.xls
+```
+
+Recovering the key using the known-plaintext attack:
+```
+$ python esafenet.py findkey --infile encrypted.xls --comp_file decrypted.xls --outfile key.dat
+Succes: key written to key.dat
+```
+
+Recovering the encryption key of source code files (probable-plaintext attack, C#):
+```
+$ python esafenet.py pattern_decrypt --type text --infolder srcfiles --outfolder /tmp --language CS --outfile key.dat
 ```
 
 ##### Troubleshooting
 
-If you get errors/crashes, they are probably caused be the LZO compression library. The first 512 bytes of an E-Safenet encrypted file are compressed. When using a wrong key, decompression may fail and lead to a crash.
+If you get errors/crashes, they are probably caused by the LZO compression library. The first 512 bytes of an E-Safenet encrypted file are compressed. When using a wrong key, decompression may fail and lead to a crash.
 You can temporarily disable decompression of the first block by changing the *plain_header* variable in esafenet.py to an empty string:
 
 ```
