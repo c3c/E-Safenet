@@ -58,7 +58,7 @@ optional arguments:
                         Plaintext comparison file used by findkey
   --type pattern_type   Type for pattern decrypt (binary or text)
   --language text_pattern_language
-                        Language for text pattern decrypt (C or PHP)
+                        Language for text pattern decrypt (C, PHP or CS)
 ```
 
 ##### Examples
