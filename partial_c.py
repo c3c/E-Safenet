@@ -1,19 +1,19 @@
-#Probable plaintext decryption of XOR-encrypted files with a key of 512 bytes (for E-Safenet)
-#Copyright (C) 2014  Jan Laan, Cedric Van Bockhaven
+# Probable plaintext decryption of XOR-encrypted files with a key of 512 bytes (for E-Safenet)
+# Copyright (C) 2014  Jan Laan, Cedric Van Bockhaven
 #
-#This program is free software; you can redistribute it and/or
-#modify it under the terms of the GNU General Public License
-#as published by the Free Software Foundation; either version 2
-#of the License, or (at your option) any later version.
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
 #
-#This program is distributed in the hope that it will be useful,
-#but WITHOUT ANY WARRANTY; without even the implied warranty of
-#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#GNU General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-#You should have received a copy of the GNU General Public License
-#along with this program; see the file LICENSE. if not, write to the Free Software
-#Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+# You should have received a copy of the GNU General Public License
+# along with this program; see the file LICENSE. if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 import sys
 import pickle
 from collections import defaultdict
@@ -60,6 +60,18 @@ keyword_lists['PHP'] = [
 "      ",
 "        ",
 "Copyright"
+]
+
+keyword_lists['CS'] = [
+"private void InitializeComponent",
+"private System.Windows.Forms",
+"static void Main(string[] args)",
+"private void",
+"public void",
+"this.",
+"public ",
+"        ",
+"private "
 ]
 
 open_files = []

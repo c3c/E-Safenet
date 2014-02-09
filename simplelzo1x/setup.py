@@ -1,11 +1,13 @@
 from distutils.core import setup, Extension
+import struct
+
+# It should auto-detect the platform and link against the correct library
 
 module1 = Extension('simplelzo1x',
                     sources = ['simplelzo1xmodule.c'],
-                    include_dirs = ['lzo/lzo100'],
+                    include_dirs = ['liblzo'],
                     libraries = ['lzo'],
-                    library_dirs = ['lzo/lzo100/x64'])
-#                    libraries = ['lzo2'])
+                    library_dirs = ['liblzo/'+str(8 * struct.calcsize("P"))+'bit'])
 
 setup (name = 'simplelzo1x',
        version = '1.1',
