@@ -10,13 +10,16 @@ Several attacks were developed that may partially or fully recover E-Safenet enc
    * Against binary files
  * Ciphertext-only attack
 
-
 ## Python scripts
-
 
 The python scripts provided can be used to encrypt and decrypt using the E-Safenet encryption, or to extract encryption keys.
 
-### Setup
+Two main files are available:
+
+ * **esafenet.py**: command-line interface to _known-plaintext_ and _probable-plaintext_ attacks
+ * **esafenet_gui.py**: GUI interface for the _ciphertext-only_ attack
+
+##### Setup
 
 Prior to using these scripts, the simplelzo1x module has to be compiled first.
 This module provides an interface to the LZO v1.00 compression library.
@@ -27,15 +30,7 @@ cd simplelzo1x && sudo python setup.py install
 
 More information about the library can be found in the README file in the simplelzo1x directory.
 
-### Python scripts
-
-Two main files are available:
-
- * **esafenet.py**: command-line interface to //known-plaintext// and //probable-plaintext// attacks
- * **esafenet_gui.py**: GUI interface for the //ciphertext-only// attack
-
-#### CLI: Known-plaintext & probable-plaintext
-
+### esafenet.py
 
 ```none
 usage: esafenet.py [-h] [--infile INFILE] [--key KEY] [--outfile OUTFILE]
@@ -80,17 +75,19 @@ Decrypting an E-Safenet file using a provided key:
 $ python esafenet.py decrypt --infile encrypted.xls --key key.dat --outfile decrypted.xls
 ```
 
-#### GUI: ciphertext-only attack
+### esafenet_gui.py
 
-The GUI app esafenet_gui.py can be used for the ciphertext-only attack.
+The GUI app **esafenet_gui.py** can be used for the ciphertext-only attack.
 More information about this attack can be found in the research paper.
 
-1) menu -> Open folder or file, select an E-Safenet file, or a folder containing only E-Safenet files ENCRYPTED WITH THE SAME KEY
-2) menu -> Analyze, analyzes the files, tries to maximize plaintext in the file(s), as described in the report.
+1. menu -> Open folder or file, select an E-Safenet file, or a folder containing only E-Safenet files **encrypted with the same key**.
+2. menu -> Analyze, analyzes the files, tries to maximize plaintext in the file(s), as described in the report.
 
 Note: The analyze step may take some time (15s for 200kB on my 5y/o laptop, displaying results in thhe grid takes even longer...)
 
 Results are displayed as-is, this program is not complete. Feel free to do with it as you see fit.
+
+![COA tool](../resources/coatool.png?raw=true)
 
 ## Credits
 
