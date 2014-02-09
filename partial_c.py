@@ -62,6 +62,18 @@ keyword_lists['PHP'] = [
 "Copyright"
 ]
 
+keyword_lists['CS'] = [
+"private void InitializeComponent",
+"private System.Windows.Forms",
+"static void Main(string[] args)",
+"private void",
+"public void",
+"this.",
+"public ",
+"        ",
+"private "
+]
+
 open_files = []
 
 def gen():

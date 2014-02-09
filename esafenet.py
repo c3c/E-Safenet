@@ -88,6 +88,7 @@ class Esafenet:
 		plain = ""
 		offset = ord(text[4]) | ord(text[5]) << 8  #offset is stored in these 2 bytes in little-endian order.
 		decr_header = Esafenet.__xor_with_key(text[offset:512], key)
+#		plain_header = ""
 		plain_header = simplelzo1x.decompress(decr_header)
 		plain_file = Esafenet.__xor_with_key(text[512:], key)
 		
@@ -102,7 +103,9 @@ class Esafenet:
 	def __xor_with_key(text, key):
 		xored = ""
 		for idx, c in enumerate(text):
-			xored += chr(ord(c) ^ key[idx % len(key)])
+			keyb = key[idx % len(key)]
+			keyb = 0 if keyb is None else keyb
+			xored += chr(ord(c) ^ keyb)
 		return xored
 			
 	"""
@@ -203,7 +206,7 @@ if __name__ == "__main__":
 	parser.add_argument('--outfolder', type=str, help='Output folder', required=False)
 	parser.add_argument('--comp_file', type=argparse.FileType('rb'), help='Plaintext comparison file used by findkey', required=False)
 	parser.add_argument('--type', metavar='pattern_type', type=str, help='Type for pattern decrypt (binary or text)', choices = ['binary', 'text'], required=False)
-	parser.add_argument('--language', metavar='text_pattern_language', type=str, help='Language for text pattern decrypt (C or PHP)', choices = ['C', 'PHP'], required=False)
+	parser.add_argument('--language', metavar='text_pattern_language', type=str, help='Language for text pattern decrypt (C, PHP or CS)', choices = ['C', 'PHP', 'CS'], required=False)
 	
 	args = parser.parse_args()
 	
