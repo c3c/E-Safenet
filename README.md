@@ -16,8 +16,8 @@ The python scripts provided can be used to encrypt and decrypt using the E-Safen
 
 Two main files are available:
 
- * **esafenet.py**: command-line interface to _known-plaintext_ and _probable-plaintext_ attacks
- * **esafenet_gui.py**: GUI interface for the _ciphertext-only_ attack
+ * [**esafenet.py**](esafenet.py): command-line interface to _known-plaintext_ and _probable-plaintext_ attacks
+ * [**esafenet_gui.py**](esafenet_gui.py): GUI interface for the _ciphertext-only_ attack
 
 ##### Setup
 
@@ -28,7 +28,7 @@ This module provides an interface to the LZO v1.00 compression library.
 cd simplelzo1x && sudo python setup.py install
 ```
 
-More information about the library can be found in the README file in the simplelzo1x directory.
+More information about the library can be found in the [README](simplelzo1x/README) file in the simplelzo1x directory.
 
 ### esafenet.py
 
@@ -63,28 +63,29 @@ optional arguments:
 
 ##### Examples
 
-Recovering the encryption key of a binary file (probable-plaintext attack):
+ * Recovering the encryption key of a binary file (probable-plaintext attack):
 
 ```
 $ python esafenet.py pattern_decrypt --type binary --infile encrypted.xls --outfile key.dat
 Decryption: key written to key.dat (4 0-bytes)
 ```
 
-Decrypting an E-Safenet file using a provided key:
+ * Decrypting an E-Safenet file using a provided key:
 ```
 $ python esafenet.py decrypt --infile encrypted.xls --key key.dat --outfile decrypted.xls
 Decryption: 153400 bytes written to decrypted.xls
 ```
 
-Recovering the key using the known-plaintext attack:
+ * Recovering the key using the known-plaintext attack:
 ```
 $ python esafenet.py findkey --infile encrypted.xls --comp_file decrypted.xls --outfile key.dat
 Succes: key written to key.dat
 ```
 
-Recovering the encryption key of source code files (probable-plaintext attack, C#):
+ * Recovering the encryption key of source code files (probable-plaintext attack, C#):
 ```
 $ python esafenet.py pattern_decrypt --type text --infolder srcfiles --outfolder /tmp --language CS --outfile key.dat
+Match found!! ...
 ```
 
 ##### Troubleshooting
@@ -110,6 +111,10 @@ Note: The analyze step may take some time (15s for 200kB on my 5y/o laptop, disp
 Results are displayed as-is, this program is not complete. Feel free to do with it as you see fit.
 
 ![COA tool](../resources/coatool.png?raw=true)
+
+## CPLEX model
+
+For the mathematical implementation of the ciphertext-only attack, [cplex_coa.mod](cplex_coa.mod) provides a CPLEX model for the Binary Integer Programming problem that represents the maximization of printable characters in an E-Safenet encrypted document.
 
 ## Credits
 
