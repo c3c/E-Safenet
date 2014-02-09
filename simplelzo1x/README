@@ -1,1 +1,7 @@
+This directory contains a python binding for the LZO compression library.
+Only the LZO1X compression algorithm is supported, which is the one used by E-Safenet.
+More specifically, the python module links again a statically compiled version of LZO1X version 1.00. 
+
 To compile/install: `python setup.py install`
+
+

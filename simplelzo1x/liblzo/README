@@ -1,0 +1,2 @@
+This directory contains statically 32/64-bit compiled libraries for LZO version 1.00.
+Only the necessary headers for the LZO1X algorithm were included, as they are the only ones that are needed for E-Safenet compression.
