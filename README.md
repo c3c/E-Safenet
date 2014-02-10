@@ -10,6 +10,8 @@ Several attacks were developed that may partially or fully recover E-Safenet enc
    * Against binary files
  * Ciphertext-only attack
 
+All specifics and attacks are document in the [research paper](report.pdf) on E-Safenet encryption.
+
 ## Python scripts
 
 The python scripts provided can be used to encrypt and decrypt using the E-Safenet encryption, or to extract encryption keys.
