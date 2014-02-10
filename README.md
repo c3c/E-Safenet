@@ -10,7 +10,7 @@ Several attacks were developed that may partially or fully recover E-Safenet enc
    * Against binary files
  * Ciphertext-only attack
 
-All specifics and attacks are document in the [research paper](report.pdf) on E-Safenet encryption.
+All specifics and attacks are document in the [research paper](report.pdf?raw=true) on E-Safenet encryption.
 
 ## Python scripts
 
