@@ -1,4 +1,4 @@
 To compile the 64-bit version of lzo 1.00:
-- in config.sub add x86_64* between machine type checks,
 - export LZO_CFLAGS=-fPIC
+- ./configure --host=none
 - make
