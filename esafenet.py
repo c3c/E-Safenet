@@ -317,7 +317,7 @@ if __name__ == "__main__":
 		
 		cPickle.dump(key, args.outfile)
 		if args.outfile.name != '<stdout>':
-			print "Succes: key written to %s" % args.outfile.name
+			print "Success: key written to %s" % args.outfile.name
 	elif args.a == 'pattern_decrypt':
 		if args.type == None:
 			parser.print_usage()
